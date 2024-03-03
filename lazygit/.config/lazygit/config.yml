@@ -1,0 +1,19 @@
+customCommands:
+  - key: 'S'
+    description: 'Merge --squash into currently checked out branch'
+    context: 'localBranches'
+    command: 'git merge --squash {{.SelectedLocalBranch.Name}} && git commit -m "{{.Form.Summary}}"'
+    after:
+      checkForConflicts: true
+
+    prompts:
+      - type: 'confirm'
+        title: 'Merge --squash'
+        body: "Are you sure you want to merge --squash '{{.SelectedLocalBranch.Name}}' into '{{.CheckedOutBranch.Name}}'?"
+
+      - type: 'input'
+        title: 'Commit summary'
+        key: 'Summary'
+        initialValue: ''
+
+
