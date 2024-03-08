@@ -1,3 +1,9 @@
+# [colors.primary]
+# background = "#080808"
+# foregound = ""
+
+[terminal]
+osc52 = "CopyPaste"
 # Colors (Tokyo Night)
 # Source https//github.com/zatchheems/tokyo-night-alacritty-theme
 
@@ -26,4 +32,4 @@ yellow  = '#ff9e64'
 blue    = '#7da6ff'
 magenta = '#bb9af7'
 cyan    = '#0db9d7'
-white   = '#acb0d0'
+
