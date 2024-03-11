@@ -3,8 +3,7 @@
 # args = ["new-session", "-A", "-s", "main"]
 
 import = [
-  # "~/.config/alacritty/themes/catppuccin-latte.toml"
-  "~/.config/alacritty/themes/tokyonight.toml"
+  "~/.config/alacritty/themes/current_theme.toml"
 ]
     
 [window]

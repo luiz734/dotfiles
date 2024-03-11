@@ -75,6 +75,7 @@ alias screenoff="sleep 1; xset dpms force off"
 alias cpy="xclip -sel clip"
 # gum
 alias run="$HOME/scripts/run.sh"
+alias change-theme="$HOME/scripts/alacritty-change-theme.lua"
 # kitty ssh
 # alias ssh-k="kitty +kitten ssh" # --kitten=color_scheme=Alucarda"
 alias cat="bat"
