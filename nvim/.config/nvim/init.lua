@@ -55,13 +55,13 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end,
 })
 
--- open telescope when open obsidian dir
+-- open telescope when open obsidian/wiki dir
 vim.api.nvim_create_autocmd("VimEnter", {
     pattern = { "*" },
     desc = "remember last cursor place",
     callback = function(args)
         local home = os.getenv("HOME")
-        if vim.fn.getcwd() == home .. "/Drive/obsidian" then
+        if vim.fn.getcwd() == home .. "/Drive/obsidian/Wiki" then
             require('telescope.builtin').live_grep()
             vim.api.nvim_echo({ { home , 'WarningMsg' } }, true, {})
         end
