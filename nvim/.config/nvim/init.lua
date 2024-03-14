@@ -63,9 +63,21 @@ vim.api.nvim_create_autocmd("VimEnter", {
         local home = os.getenv("HOME")
         if vim.fn.getcwd() == home .. "/Drive/obsidian/Wiki" then
             require('telescope.builtin').live_grep()
-            vim.api.nvim_echo({ { home , 'WarningMsg' } }, true, {})
+            vim.api.nvim_echo({ { home, 'WarningMsg' } }, true, {})
         end
     end,
+})
+
+-- remember folding
+vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
+    pattern = { "*.*" },
+    desc = "save view (folds), when closing file",
+    command = "mkview",
+})
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+    pattern = { "*.*" },
+    desc = "load view (folds), when opening file",
+    command = "silent! loadview"
 })
 
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
