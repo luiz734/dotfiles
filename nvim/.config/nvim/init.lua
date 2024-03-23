@@ -16,6 +16,8 @@ vim.keymap.set({ 'v', 'n' }, '<leader>p', '"+p', {})
 
 vim.keymap.set({ 'n' }, '<Tab><Tab>', ':w<CR>', { silent = true })
 
+vim.keymap.set({ 'n' }, '<C-o>', '<C-o>zz', { silent = true })
+
 
 
 -- vim.opt.clipboard = 'unnamedplus'
