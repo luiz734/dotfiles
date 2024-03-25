@@ -26,7 +26,7 @@ return
             vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Find help" })
             vim.keymap.set('n', '<leader>fc', builtin.command_history, { desc = "Find command history" })
             vim.keymap.set('n', '<leader>fy', ":Telescope neoclip<CR>", { silent = true, desc = "Find yanks" })
-            vim.keymap.set('n', '<leader>fq', ":Telescope macroscope<CR>", { silent = true, desc = "Find yanks" })
+            vim.keymap.set('n', '<leader>fq', ":Telescope macroscope<CR>", { silent = true, desc = "Find macros" })
             vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = "Resume last search" })
         end
     },
