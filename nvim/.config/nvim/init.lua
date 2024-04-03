@@ -64,8 +64,8 @@ vim.api.nvim_create_autocmd("VimEnter", {
     callback = function(args)
         local home = os.getenv("HOME")
         if vim.fn.getcwd() == home .. "/Drive/obsidian/Wiki" then
-            require('telescope.builtin').live_grep()
-            vim.api.nvim_echo({ { home, 'WarningMsg' } }, true, {})
+            -- require('telescope.builtin').live_grep()
+            -- vim.api.nvim_echo({ { home, 'WarningMsg' } }, true, {})
         end
     end,
 })
