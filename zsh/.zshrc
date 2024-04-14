@@ -81,7 +81,7 @@ alias change-theme="$HOME/scripts/alacritty-change-theme.lua"
 alias cat="bat"
 alias wiki="cd ~/Drive/obsidian/Wiki && nvim ."
 # alias lazy="lazygit"
-alias tmm="tmuxinator"
+alias tmx="tmuxinator"
 
 # enable <C-BS> for file paths
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'

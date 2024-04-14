@@ -49,6 +49,7 @@ return
 
 
             lspconfig.lua_ls.setup({})
+            lspconfig.gopls.setup({})
             lspconfig.pyright.setup {}
             lspconfig.bashls.setup({
                 filetypes = { "sh", }
