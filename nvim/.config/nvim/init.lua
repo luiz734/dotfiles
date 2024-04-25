@@ -124,3 +124,5 @@ vim.keymap.set('n', '<leader>wh', ':wincmd r<CR>', { noremap = true, desc = "Win
 vim.keymap.set('n', '<leader>w=', ':wincmd =<CR>', { noremap = true, desc = "Window match width" })
 vim.keymap.set('n', '<leader>w-', ':tab split<CR>', { noremap = true, desc = "Open window in new tab" })
 vim.keymap.set('n', '<leader>w0', ':tabc<CR>', { noremap = true, desc = "Close tab" })
+
+require('cache.theme')
