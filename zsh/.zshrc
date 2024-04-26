@@ -99,6 +99,9 @@ setopt HIST_SAVE_NO_DUPS
 bindkey "^[[1;5D" backward-word
 bindkey "^[[1;5C" forward-word
 
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
+
 # direnv
 eval "$(direnv hook zsh)"
 # zoxide
