@@ -5,20 +5,33 @@ return
     {
         "zaldih/themery.nvim",
         config = function()
+            local user = os.getenv('USER')
+            local theme_config_file = '/home/' .. user .. '/.config/nvim/lua/cache/theme.lua'
             -- Minimal config
             require("themery").setup({
                 themes = {
                     "catppuccin",
                     "tokyonight-night",
-                    "moonfly"
-                },                                                      -- Your list of installed colorschemes
-                themeConfigFile = "~/.config/nvim/lua/cache/theme.lua", -- Described below
-                livePreview = true,                                     -- Apply theme while browsing. Default to true.
+                    "moonfly",
+                    "onedark"
+                },                                   -- Your list of installed colorschemes
+                themeConfigFile = theme_config_file, -- Described below
+                livePreview = true,                  -- Apply theme while browsing. Default to true.
             })
         end
     },
 
     -- Colorschemes
+    {
+        "navarasu/onedark.nvim",
+        name = "onedark",
+        config = function()
+            require('onedark').setup {
+                style = 'darker'
+            }
+            require('onedark').load()
+        end
+    },
     {
         "catppuccin/nvim",
         name = "catppuccin",

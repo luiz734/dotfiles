@@ -91,7 +91,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     pattern = '*',
 })
 
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -125,4 +124,24 @@ vim.keymap.set('n', '<leader>w=', ':wincmd =<CR>', { noremap = true, desc = "Win
 vim.keymap.set('n', '<leader>w-', ':tab split<CR>', { noremap = true, desc = "Open window in new tab" })
 vim.keymap.set('n', '<leader>w0', ':tabc<CR>', { noremap = true, desc = "Close tab" })
 
-require('cache.theme')
+-- setup themery
+-- create the config file used to store the current theme
+local success, _ = pcall(function()
+    require('cache.theme')
+end)
+if not success then
+    local user = os.getenv("USER")
+    local theme_config_dir = '/home/' .. user .. '/.config/nvim/lua/cache'
+    local theme_config_file = theme_config_dir .. '/theme.lua'
+    os.execute("mkdir " .. theme_config_dir)
+    local f = io.open(theme_config_file, "w")
+    if f ~= nil then
+        f:write([[-- Themery block
+  -- This block will be replaced by Themery.
+-- end themery block]])
+        f:close()
+    else
+        error([[Can't create file for Themery. Create it manually at
+]] .. theme_config_file)
+    end
+end

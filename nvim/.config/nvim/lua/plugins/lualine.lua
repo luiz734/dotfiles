@@ -5,6 +5,21 @@ return {
         local theme = require 'lualine.themes.nightfly'
         theme.normal.c.bg = 'none'
 
+        local macro_group = vim.api.nvim_create_augroup("MacroStatusHighlight", { clear = true })
+        vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+            pattern = "*",
+            group = macro_group,
+            callback = function()
+                vim.api.nvim_set_hl(0, "MacroStatus", { foreground = "#ffffff", background = "#ff0000", bold = true })
+            end
+        })
+
+        local function macro_status()
+            local reg = vim.fn.reg_recording()
+            if reg == "" then return "" end -- not recording
+            return "%#MacroStatus#REC@" .. reg
+        end
+
         require('lualine').setup {
             options = {
                 icons_enabled = true,
@@ -31,7 +46,7 @@ return {
                 lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
                 lualine_b = { 'branch', 'diff', 'diagnostics' },
                 lualine_c = { 'filename' },
-                lualine_x = { 'encoding', 'fileformat', 'filetype' },
+                lualine_x = { macro_status, 'encoding', 'fileformat', 'filetype' },
                 lualine_y = { 'progress' },
                 lualine_z = {
                     { 'location', separator = { right = '' }, left_padding = 2 },
