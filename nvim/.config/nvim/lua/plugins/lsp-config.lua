@@ -1,22 +1,23 @@
 return
 {
     {
-        "jay-babu/mason-null-ls.nvim",
+        "nvimtools/none-ls.nvim",
         event = { "BufReadPre", "BufNewFile" },
         dependencies = {
             "williamboman/mason.nvim",
-            "nvimtools/none-ls.nvim",
+            -- "nvimtools/none-ls.nvim",
         },
         config = function()
-            require("mason-null-ls").setup({
-                ensure_installed = { "black" }
-            })
+            -- require("mason-none-ls").setup({
+            --     ensure_installed = { "black" }
+            -- })
 
             local null_ls = require("null-ls")
 
             null_ls.setup({
                 sources = {
                     null_ls.builtins.formatting.black,
+                    null_ls.builtins.formatting.gdformat,
                 },
             })
         end
@@ -54,6 +55,7 @@ return
             lspconfig.bashls.setup({
                 filetypes = { "sh", }
             })
+            lspconfig.gdscript.setup { capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()) }
 
             vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
             vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Diagnostic prev" })
