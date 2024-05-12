@@ -29,7 +29,7 @@ return {
         })
 
         vim.keymap.set('n', '<leader>o', function()
-            vim.cmd("vsplit | wincmd L")
+            -- vim.cmd("vsplit | wincmd L")
             require("oil").open()
         end, { noremap = true, desc = "Open oil" })
     end
