@@ -47,8 +47,6 @@ return
 
             require('lspconfig').gdscript.setup {}
 
-
-
             lspconfig.lua_ls.setup({})
             lspconfig.gopls.setup({})
             lspconfig.pyright.setup {}
@@ -72,7 +70,6 @@ return
                     -- See `:help vim.lsp.*` for documentation on any of the below functions
                     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = ev.buf, desc = "Go to declaration" })
                     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = ev.buf, desc = "Go to definition" })
-
                     vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = ev.buf, desc = "Hover doc" })
                     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation,
                         { buffer = ev.buf, desc = "Go to implementation" })

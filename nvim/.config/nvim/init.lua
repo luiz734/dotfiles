@@ -1,23 +1,35 @@
+-- change default behaviour
 vim.g.mapleader = " "
 vim.keymap.set({ 'n', 'v' }, ';', ':', {})
 vim.keymap.set({ 'n', 'v' }, ':', ';', {})
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set({ 'n' }, '<c-s>', function() vim.cmd ':w' end, { silent = true })
-vim.keymap.set('n', '<C-0>', '<C-w><C-w>', { desc = "Next window" })
+vim.keymap.set({ 'n' }, '<C-o>', '<C-o>zz', { silent = true })
 
 -- arrow remaps
--- vim.keymap.set({ 'n', }, '<C-q>', ':q<CR>', { silent = true })
 vim.keymap.set({ 'n', }, '<Up>', ':<Up>', {})
 vim.keymap.set({ 'n', }, '<Left>', ':messages<CR>', { silent = true })
 
-
+-- yank
 vim.keymap.set({ 'v', 'n' }, '<leader>y', '"+y', {})
 vim.keymap.set({ 'v', 'n' }, '<leader>p', '"+p', {})
 
-vim.keymap.set({ 'n' }, '<Tab><Tab>', ':w<CR>', { silent = true })
+-- quickfix
+vim.keymap.set('n', '<c-]>', ':cn<CR>', { desc = "Quick fix next", silent = true })
+vim.keymap.set('n', '<c-[>', ':cp<CR>', { desc = "Quick fix prev", silent = true })
+-- cdo %s/foo/bar/gc
 
-vim.keymap.set({ 'n' }, '<C-o>', '<C-o>zz', { silent = true })
-
+-- window related
+vim.keymap.set('n', '<leader>ww', '<C-w><C-w>', { noremap = true, desc = "Next window" })
+vim.keymap.set('n', '<leader>wv', ':vsplit<CR>:wincmd l<CR>', { noremap = true, desc = "Window split" })
+vim.keymap.set('n', '<leader>ws', ':split<CR>', { noremap = true, desc = "Window split" })
+vim.keymap.set('n', '<leader>q', ':close<CR>', { noremap = true, desc = "Window close" })
+vim.keymap.set('n', '<leader>wo', ':only<CR>', { noremap = true, desc = "Window close others" })
+vim.keymap.set('n', '<leader>w=', ':wincmd =<CR>', { noremap = true, desc = "Window match width" })
+vim.keymap.set('n', '<leader>w-', ':tab split<CR>', { noremap = true, desc = "Open window in new tab" })
+vim.keymap.set('n', '<leader>w0', ':tabc<CR>', { noremap = true, desc = "Close tab" })
+vim.keymap.set('n', '<leader>wH', '<c-w>H', { noremap = true, silent = true, desc = "Move window left" })
+vim.keymap.set('n', '<leader>wL', '<c-w>L', { noremap = true, silent = true, desc = "Move window right" })
 
 
 -- vim.opt.clipboard = 'unnamedplus'
@@ -82,6 +94,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
     command = "silent! loadview"
 })
 
+-- blink when yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function()
@@ -91,6 +104,20 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     pattern = '*',
 })
 
+-- open certain type os files on a vertical split
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = '*',
+    callback = function(event)
+        if vim.bo[event.buf].filetype == 'help' then
+            vim.cmd("wincmd L | wincmd =")
+        elseif vim.bo[event.buf].filetype == 'qf' then
+            vim.cmd("wincmd L | vert resize 80")
+        end
+    end,
+})
+
+
+-- lazy setup
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -103,26 +130,8 @@ if not vim.loop.fs_stat(lazypath) then
     })
 end
 vim.opt.rtp:prepend(lazypath)
-
 local opts = {}
 require("lazy").setup("plugins", opts)
-
-vim.keymap.set('n', '<leader>]', ':bn<CR>', { desc = "Buffer next" })
-vim.keymap.set('n', '<leader>[', ':bp<CR>', { desc = "Buffer prev" })
-vim.keymap.set('n', '<leader>q', ':bd<CR>', { desc = "Buffer close" })
-vim.keymap.set('n', '<leader>ww', '<C-w><C-w>', { noremap = true, desc = "Next window" })
-vim.keymap.set('n', '<leader>wv', function()
-    vim.cmd [[vsplit | wincmd l]]
-    -- vim.cmd [[wincmd l<CR>]]
-end, { noremap = true, desc = "Window vertical split" })
-vim.keymap.set('n', '<leader>ws', ':split<CR>', { noremap = true, desc = "Window split" })
-vim.keymap.set('n', '<leader>wc', ':close<CR>', { noremap = true, desc = "Window close" })
-vim.keymap.set('n', '<leader>wo', ':only<CR>', { noremap = true, desc = "Window close others" })
-vim.keymap.set('n', '<leader>wl', ':wincmd l<CR>', { noremap = true, desc = "Window left" })
-vim.keymap.set('n', '<leader>wh', ':wincmd r<CR>', { noremap = true, desc = "Window right" })
-vim.keymap.set('n', '<leader>w=', ':wincmd =<CR>', { noremap = true, desc = "Window match width" })
-vim.keymap.set('n', '<leader>w-', ':tab split<CR>', { noremap = true, desc = "Open window in new tab" })
-vim.keymap.set('n', '<leader>w0', ':tabc<CR>', { noremap = true, desc = "Close tab" })
 
 -- setup themery
 -- create the config file used to store the current theme
