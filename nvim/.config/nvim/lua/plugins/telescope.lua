@@ -8,6 +8,7 @@ return
             require('telescope').setup {
                 defaults = {
                     layout_strategy = 'flex',
+                    file_ignore_patterns = { "^addons/" }
                 },
                 -- pickers = {
                 --     find_files = {
@@ -28,6 +29,7 @@ return
             vim.keymap.set('n', '<leader>fy', ":Telescope neoclip<CR>", { silent = true, desc = "Find yanks" })
             vim.keymap.set('n', '<leader>fq', ":Telescope macroscope<CR>", { silent = true, desc = "Find macros" })
             vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = "Resume last search" })
+            vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = ""})
         end
     },
     {

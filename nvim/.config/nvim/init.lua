@@ -51,6 +51,7 @@ vim.o.undofile = true
 vim.o.updatetime = 250
 vim.wo.number = true
 vim.wo.signcolumn = 'yes'
+vim.o.scrolloff = 10
 
 
 -- remember last position on file
