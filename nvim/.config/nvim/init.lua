@@ -52,6 +52,8 @@ vim.o.updatetime = 250
 vim.wo.number = true
 vim.wo.signcolumn = 'yes'
 vim.o.scrolloff = 10
+-- fix spectre position
+vim.o.splitright = true
 
 
 -- remember last position on file
