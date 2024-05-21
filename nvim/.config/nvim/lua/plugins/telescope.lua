@@ -8,7 +8,9 @@ return
             require('telescope').setup {
                 defaults = {
                     layout_strategy = 'flex',
-                    file_ignore_patterns = { "^addons/" }
+                    file_ignore_patterns = { "^addons/",
+                        -- godot
+                        "**/*.import", "**/*.png", "**/*.ase", "**/*.ttf", "**/*.tscn", "**/*.tres" }
                 },
                 -- pickers = {
                 --     find_files = {
@@ -29,7 +31,18 @@ return
             vim.keymap.set('n', '<leader>fy', ":Telescope neoclip<CR>", { silent = true, desc = "Find yanks" })
             vim.keymap.set('n', '<leader>fq', ":Telescope macroscope<CR>", { silent = true, desc = "Find macros" })
             vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = "Resume last search" })
-            vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = ""})
+            vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = "" })
+
+            vim.keymap.set("n", "<leader>lh", function()
+                if vim.fn.has "nvim-0.10" == 1 then
+                    local ok = pcall(vim.lsp.inlay_hint.enable, vim.lsp.inlay_hint.is_enabled())
+                    if ok then
+                        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+                    else
+                        vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
+                    end
+                end
+            end, { desc = "LSP | Toggle Inlay Hints", silent = true })
         end
     },
     {

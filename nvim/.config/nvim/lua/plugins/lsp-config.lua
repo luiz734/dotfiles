@@ -47,7 +47,15 @@ return
 
             require('lspconfig').gdscript.setup {}
 
-            lspconfig.lua_ls.setup({})
+            lspconfig.lua_ls.setup({
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { 'vim' }
+                        }
+                    }
+                }
+            })
             lspconfig.gopls.setup({})
             lspconfig.pyright.setup {}
             lspconfig.bashls.setup({
@@ -56,8 +64,11 @@ return
             lspconfig.gdscript.setup { capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()) }
 
             vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-            vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Diagnostic prev" })
-            vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Diagnostic next" })
+
+            -- Not necessary after 0.10
+            -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Diagnostic prev" })
+            -- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Diagnostic next" })
+
             -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
             vim.api.nvim_create_autocmd('LspAttach', {

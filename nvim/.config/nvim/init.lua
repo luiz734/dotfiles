@@ -55,7 +55,6 @@ vim.o.scrolloff = 10
 -- fix spectre position
 vim.o.splitright = true
 
-
 -- remember last position on file
 local lastplace = vim.api.nvim_create_augroup("LastPlace", {})
 vim.api.nvim_clear_autocmds({ group = lastplace })
