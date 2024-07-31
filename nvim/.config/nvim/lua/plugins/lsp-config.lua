@@ -17,6 +17,7 @@ return
             null_ls.setup({
                 sources = {
                     null_ls.builtins.formatting.black,
+                    null_ls.builtins.formatting.prettier,
                     -- null_ls.builtins.formatting.gdformat,
                 },
             })
@@ -62,6 +63,26 @@ return
                 filetypes = { "sh", }
             })
             lspconfig.gdscript.setup { capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()) }
+
+            lspconfig.tsserver.setup {
+                filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
+                cmd = { "typescript-language-server", "--stdio" }
+            }
+            lspconfig.cssls.setup {
+                filetypes = { "css" }
+            }
+            lspconfig.jsonls.setup {
+                filetypes = { "json" }
+            }
+            lspconfig.tailwindcss.setup {
+                filetypes = { "typescriptreact", "javascript" }
+            }
+            lspconfig.eslint.setup {
+                filetypes = { "javascript" }
+            }
+            -- lspconfig.prettier.setup {
+            --     filetypes = { "javascript" }
+            -- }
 
             vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 

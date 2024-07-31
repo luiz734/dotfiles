@@ -6,6 +6,7 @@ return
         local config = require("nvim-treesitter.configs")
         config.setup({
             ensure_installed = { "lua", "markdown", "markdown_inline", "python", "gdscript" },
+            auto_install = true,
             highlight = { enabled = true },
             indent = { enabled = true },
             incremental_selection = {

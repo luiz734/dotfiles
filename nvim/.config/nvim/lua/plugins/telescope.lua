@@ -10,7 +10,9 @@ return
                     layout_strategy = 'flex',
                     file_ignore_patterns = { "^addons/",
                         -- godot
-                        "**/*.import", "**/*.png", "**/*.ase", "**/*.ttf", "**/*.tscn", "**/*.tres" }
+                        "**/*.import", "**/*.png", "**/*.ase", "**/*.ttf", "**/*.tscn", "**/*.tres",
+                        "venv"
+                    }
                 },
                 -- pickers = {
                 --     find_files = {
