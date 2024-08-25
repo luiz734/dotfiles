@@ -57,7 +57,10 @@ export SCRIPTS_DIR="$HOME/scripts"
 # export LS_COLORS="di=34"
 
 export EDITOR=/usr/bin/nvim
-export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
+export FZF_DEFAULT_OPTS="--layout=reverse --inline-info\
+    --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 SUDO_EDITOR=/usr/bin/nvim
 export SUDO_EDITOR
 
@@ -155,3 +158,4 @@ source ~/fzf-git.sh/fzf-git.sh
 
 # allow mouse scroll
 export LESS='--mouse --wheel-lines=3'
+# export BAT_THEME="Catppuccin Mocha"

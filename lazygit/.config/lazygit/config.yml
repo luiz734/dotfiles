@@ -1,19 +1,42 @@
 customCommands:
-  - key: 'S'
-    description: 'Merge --squash into currently checked out branch'
-    context: 'localBranches'
+  - key: "S"
+    description: "Merge --squash into currently checked out branch"
+    context: "localBranches"
     command: 'git merge --squash {{.SelectedLocalBranch.Name}} && git commit -m "{{.Form.Summary}}"'
     after:
       checkForConflicts: true
 
     prompts:
-      - type: 'confirm'
-        title: 'Merge --squash'
+      - type: "confirm"
+        title: "Merge --squash"
         body: "Are you sure you want to merge --squash '{{.SelectedLocalBranch.Name}}' into '{{.CheckedOutBranch.Name}}'?"
 
-      - type: 'input'
-        title: 'Commit summary'
-        key: 'Summary'
-        initialValue: ''
+      - type: "input"
+        title: "Commit summary"
+        key: "Summary"
+        initialValue: ""
 
-
+gui:
+  # Use the mocha catppuccin theme
+  theme:
+    activeBorderColor:
+      - "#89b4fa"
+      - bold
+    inactiveBorderColor:
+      - "#a6adc8"
+    optionsTextColor:
+      - "#89b4fa"
+    selectedLineBgColor:
+      - "#313244"
+    selectedRangeBgColor:
+      - "#313244"
+    cherryPickedCommitBgColor:
+      - "#45475a"
+    cherryPickedCommitFgColor:
+      - "#89b4fa"
+    unstagedChangesColor:
+      - "#f38ba8"
+    defaultFgColor:
+      - "#cdd6f4"
+    searchingActiveBorderColor:
+      - "#f9e2af"

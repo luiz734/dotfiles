@@ -15,7 +15,7 @@ return
                     "moonfly",
                     "onedark"
                 },                                   -- Your list of installed colorschemes
-                themeConfigFile = theme_config_file, -- Described below
+                -- themeConfigFile = theme_config_file, -- Described below
                 livePreview = true,                  -- Apply theme while browsing. Default to true.
             })
         end
