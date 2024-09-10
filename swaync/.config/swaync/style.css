@@ -169,15 +169,6 @@ label {
 /*.widget-buttons-grid>XXXflowbox>flowboxchild:nth-child(2)>button>label {}*/
 /*.widget-buttons-grid>XXXflowbox>flowboxchild:nth-child(2)>button {}*/
 /*.widget-buttons-grid>XXXflowbox>flowboxchild>button:hover>label { color: @pink; }*/
-.widget-buttons-grid>flowbox>flowboxchild:nth-child(2)>button>label {}
-.widget-buttons-grid>flowbox>flowboxchild:nth-child(2)>button {}
-.widget-buttons-grid>flowbox>flowboxchild:nth-child(2)>button:hover>label { color: @pink; }
-
-
-.widget-buttons-grid>flowbox>flowboxchild:nth-child(4)>button>label {}
-.widget-buttons-grid>flowbox>flowboxchild:nth-child(4)>button {}
-.widget-buttons-grid>flowbox>flowboxchild:nth-child(4)>button:hover>label { color: @pink; }
-
 
 .widget-buttons-grid>flowbox>flowboxchild>button {
     padding: 10px;
@@ -575,3 +566,5 @@ trough slider:hover {
 .notification-group.collapsed:hover .notification-row:not(:only-child) .notification {
     /* @noti-bg-hover-opaque */
 }
+
+@import url("widgets.css");

@@ -64,20 +64,20 @@
         "buttons-grid": {
             "actions": [
                 {
-                    "label": "   Wi-FI",
-                    "command": "nm-connection-editor"
+                    "label": "   Connected",
+                    "command": "swaync-widgets wifi"
                 },
                 {
                     "label": "󰕾  Mute",
-                    "command": "/home/tohru/.config/hypr/scripts/toggle-mute.sh"
+                    "command": "swaync-widgets mute"
                 },
                 {
-                    "label": "󰂯  Bluetooth",
-                    "command": "blueman-manager"
+                    "label": "󰂲  Bluetooth",
+                    "command": "swaync-widgets bluetooth"
                 },
                 {
                     "label": "  VPN",
-                    "command": "/home/tohru/.config/hypr/scripts/toggle-vpn.sh"
+                    "command": "swaync-widgets vpn"
                 },
                 {
                     "label": "  Picker",
