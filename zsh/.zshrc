@@ -67,6 +67,7 @@ export SUDO_EDITOR
 PATH=$PATH:~/.local/bin
 PATH=$PATH:~/.local/share/gem/ruby/3.0.0/bin
 PATH="$PATH:~/.dotnet/tools"
+PATH="$PATH:/usr/bin/vendor_perl"
 
 # PATH=$PATH:~/bin
 HISTFILE=~/.zsh_history
