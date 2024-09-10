@@ -76,8 +76,8 @@
                     "command": "blueman-manager"
                 },
                 {
-                    "label": "   Theme",
-                    "command": "/home/alien/.config/hypr/scripts/themechanging"
+                    "label": "  VPN",
+                    "command": "/home/tohru/.config/hypr/scripts/toggle-vpn.sh"
                 },
                 {
                     "label": "  Picker",
