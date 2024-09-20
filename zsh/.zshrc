@@ -68,6 +68,7 @@ PATH=$PATH:~/.local/bin
 PATH=$PATH:~/.local/share/gem/ruby/3.0.0/bin
 PATH="$PATH:~/.dotnet/tools"
 PATH="$PATH:/usr/bin/vendor_perl"
+PATH=$PATH:~/go/bin
 
 # PATH=$PATH:~/bin
 HISTFILE=~/.zsh_history
@@ -76,7 +77,7 @@ SAVEHIST=10000
 
 alias ls="lsd"
 alias screenoff="sleep 1; xset dpms force off"
-alias cpy="xclip -sel clip"
+alias cpy="wl-copy"
 # gum
 alias run="$HOME/scripts/run.sh"
 alias change-theme="$HOME/scripts/alacritty-change-theme.lua"
