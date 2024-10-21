@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 SCRIPTS_DIR="/home/$USER/.config/hypr/scripts"
+PROJ_DIR="/home/$USER/projects/qbit-tea"
 
 sleep 2
 
@@ -11,8 +12,9 @@ firefox & sleep 1
 # Desktop 2: Two Alacritty terminals, one 80% top, one 20% bottom
 workspace=2
 hyprctl dispatch workspace $workspace
-alacritty & sleep 1
-alacritty & sleep 1
+
+(cd "$PROJ_DIR" && alacritty & sleep 1)
+(cd "$PROJ_DIR" && alacritty & sleep 1)
 hyprctl dispatch togglesplit & sleep 1
 hyprctl dispatch resizeactive exact 1920 850
 hyprctl dispatch movefocus u 
@@ -25,8 +27,8 @@ alacritty & sleep 1
 
 # Desktop 4: Spotify
 workspace=4
-hyprctl dispatch workspace $workspace
-$($SCRIPTS_DIR/run-spotify.sh) & sleep 1
+# hyprctl dispatch workspace $workspace
+# $($SCRIPTS_DIR/run-spotify.sh) & sleep 1
 
 # Desktop 5: Empty
 workspace=5
