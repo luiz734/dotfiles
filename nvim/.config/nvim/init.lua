@@ -15,8 +15,8 @@ vim.keymap.set({ 'v', 'n' }, '<leader>y', '"+y', {})
 vim.keymap.set({ 'v', 'n' }, '<leader>p', '"+p', {})
 
 -- quickfix
-vim.keymap.set('n', '<c-]>', ':cn<CR>', { desc = "Quick fix next", silent = true })
-vim.keymap.set('n', '<c-[>', ':cp<CR>', { desc = "Quick fix prev", silent = true })
+vim.keymap.set('n', '<c-.>', ':cn<CR>', { desc = "Quick fix next", silent = true })
+vim.keymap.set('n', '<c-,>', ':cp<CR>', { desc = "Quick fix prev", silent = true })
 -- cdo %s/foo/bar/gc
 
 -- window related
