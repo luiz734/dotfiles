@@ -2,25 +2,22 @@ return
 {
     -- Update current theme persistently
     -- Store current theme in nvim/.config/lua/cache/theme.lua
-    {
-        "zaldih/themery.nvim",
-        config = function()
-            local user = os.getenv('USER')
-            local theme_config_file = '/home/' .. user .. '/.config/nvim/lua/cache/theme.lua'
-            -- Minimal config
-            require("themery").setup({
-                themes = {
-                    "catppuccin",
-                    "tokyonight-night",
-                    "moonfly",
-                    "onedark"
-                },                                   -- Your list of installed colorschemes
-                -- themeConfigFile = theme_config_file, -- Described below
-                livePreview = true,                  -- Apply theme while browsing. Default to true.
-            })
-        end
-    },
-
+    -- {
+    --     "zaldih/themery.nvim",
+    --     lazy = false,
+    --     config = function()
+    --         require("themery").setup({
+    --             themes = {
+    --                 "catppuccin",
+    --                 "tokyonight-night",
+    --                 "moonfly",
+    --                 "onedark"
+    --             },                  -- Your list of installed colorschemes
+    --             livePreview = true, -- Apply theme while browsing. Default to true.
+    --         })
+    --     end
+    -- },
+    --
     -- Colorschemes
     {
         "navarasu/onedark.nvim",
@@ -29,7 +26,7 @@ return
             require('onedark').setup {
                 style = 'darker'
             }
-            require('onedark').load()
+            -- require('onedark').load()
         end
     },
     {
@@ -38,9 +35,16 @@ return
         priority = 1000,
         config = function()
             require 'catppuccin'.setup({
-                flavour = "mocha"
+                custom_highlights = function(colors)
+                    return {
+                        Comment = {},
+                    }
+                end,
+                flavour = "mocha",
+                default_integrations = true,
             })
-            -- vim.cmd.colorscheme 'catppuccin'
+            vim.cmd.colorscheme 'catppuccin'
+            vim.api.nvim_set_hl(0, '@lsp.type.comment', {})
         end
     },
     {

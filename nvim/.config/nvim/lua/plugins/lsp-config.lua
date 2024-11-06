@@ -64,7 +64,7 @@ return
             })
             lspconfig.gdscript.setup { capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()) }
 
-            lspconfig.tsserver.setup {
+            lspconfig.ts_ls.setup {
                 filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
                 cmd = { "typescript-language-server", "--stdio" }
             }

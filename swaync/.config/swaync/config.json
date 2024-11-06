@@ -76,7 +76,7 @@
                     "command": "swaync-widgets bluetooth"
                 },
                 {
-                    "label": "  VPN",
+                    "label": "  Connected",
                     "command": "swaync-widgets vpn"
                 },
                 {

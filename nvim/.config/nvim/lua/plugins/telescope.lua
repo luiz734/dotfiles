@@ -34,6 +34,7 @@ return
             vim.keymap.set('n', '<leader>fq', ":Telescope macroscope<CR>", { silent = true, desc = "Find macros" })
             vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = "Resume last search" })
             vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = "" })
+            vim.keymap.set('n', '<leader>ft', ":TodoTelescope<CR>", { silent = true, desc = "Find macros" })
 
             vim.keymap.set("n", "<leader>lh", function()
                 if vim.fn.has "nvim-0.10" == 1 then
