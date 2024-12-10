@@ -161,3 +161,16 @@ source ~/fzf-git.sh/fzf-git.sh
 # allow mouse scroll
 export LESS='--mouse --wheel-lines=3'
 # export BAT_THEME="Catppuccin Mocha"
+
+# yazi
+# provides the ability to change the current working directory when exiting Yazi.
+# q quit changing CWD
+# Q just quit
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
