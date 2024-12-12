@@ -1,0 +1,45 @@
+/*
+ * Import this at the bottom of your userChrome.css
+ *
+ * @import url("custom.css");
+ *
+ * */
+
+/* === import EdgyArc-fr === */
+@import url("EdgyArc-fr/main.css");
+
+/* === Add your own css === */
+/*#urlbar-input {*/
+/*    text-align: start !important;*/
+/*}*/
+
+#urlbar:not([focused]) .urlbar-input:not([focused]) {
+    text-align: start !important;
+}
+
+@media (-moz-bool-pref:"af.edgyarc.centered-url") {
+    #urlbar:not([breakout][breakout-extend]) {
+        #urlbar-input {
+            text-align: start !important;
+        }
+
+    }
+}
+
+/* Remove extenion name before url */
+#urlbar #identity-box.extensionPage #identity-icon-label {
+  display: none !important;
+}
+
+/* Url bar text smaller */
+#urlbar {
+    font-size: 14px !important;
+}
+
+/*#TabsToolbar {*/
+/*  visibility: collapse;*/
+/*}*/
+/**/
+/*#titlebar {*/
+/*  display: none;*/
+/*}*/
