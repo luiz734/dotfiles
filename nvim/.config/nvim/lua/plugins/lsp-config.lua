@@ -72,41 +72,15 @@ return
             })
             lspconfig.gdscript.setup { capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()) }
 
-            -- lspconfig.ts_ls.setup {
-            --     filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
-            --     cmd = { "typescript-language-server", "--stdio" }
-            -- }
             lspconfig.cssls.setup {
                 filetypes = { "css" }
             }
             lspconfig.jsonls.setup {
                 filetypes = { "json" }
             }
-            -- lspconfig.tailwindcss.setup {
-            --     filetypes = { "typescriptreact", "javascript" }
-            -- }
             lspconfig.eslint.setup {
                 filetypes = { "javascript" }
             }
-            -- lspconfig.prettier.setup {
-            --     filetypes = { "javascript" }
-            -- }
-
-            -- SystemD
-            --
-            lspconfig.systemd_ls.setup = {
-                filetypes = { 'systemd' },
-            }
-            --         cmd = { 'systemd-language-server' },
-            --         filetypes = { 'systemd' },
-            --         root_dir = function() return nil end,
-            --         single_file_support = true,
-            --         settings = {},
-            --     docs = {
-            --         description = [[Language Server for Systemd unit files.]]
-            --     }
-            -- }
-            -- lspconfig.systemd_ls.setup {}
 
             vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 
