@@ -12,15 +12,15 @@ return
             --     ensure_installed = { "black" }
             -- })
 
-            local null_ls = require("null-ls")
+            -- local null_ls = require("null-ls")
 
-            null_ls.setup({
-                sources = {
-                    null_ls.builtins.formatting.black,
-                    null_ls.builtins.formatting.prettier,
-                    -- null_ls.builtins.formatting.gdformat,
-                },
-            })
+            -- null_ls.setup({
+            --     sources = {
+            --         null_ls.builtins.formatting.black,
+            --         null_ls.builtins.formatting.prettier,
+            --         -- null_ls.builtins.formatting.gdformat,
+            --     },
+            -- })
         end
     },
     {
@@ -36,8 +36,11 @@ return
                 ensure_installed = {
                     "lua_ls",
                     "bashls",
-                    "pyright"
-                }
+                    "pyright",
+                    "html",
+                    -- "htmx",
+                },
+                automatic_installation = true,
             })
         end
     },
@@ -58,31 +61,52 @@ return
                 }
             })
             lspconfig.gopls.setup({})
+            lspconfig.html.setup({
+                -- Fix html auto completion not working
+                capabilities = require('cmp_nvim_lsp').default_capabilities(),
+            })
+            -- lspconfig.htmx.setup({})
             lspconfig.pyright.setup {}
             lspconfig.bashls.setup({
                 filetypes = { "sh", }
             })
             lspconfig.gdscript.setup { capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()) }
 
-            lspconfig.ts_ls.setup {
-                filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
-                cmd = { "typescript-language-server", "--stdio" }
-            }
+            -- lspconfig.ts_ls.setup {
+            --     filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
+            --     cmd = { "typescript-language-server", "--stdio" }
+            -- }
             lspconfig.cssls.setup {
                 filetypes = { "css" }
             }
             lspconfig.jsonls.setup {
                 filetypes = { "json" }
             }
-            lspconfig.tailwindcss.setup {
-                filetypes = { "typescriptreact", "javascript" }
-            }
+            -- lspconfig.tailwindcss.setup {
+            --     filetypes = { "typescriptreact", "javascript" }
+            -- }
             lspconfig.eslint.setup {
                 filetypes = { "javascript" }
             }
             -- lspconfig.prettier.setup {
             --     filetypes = { "javascript" }
             -- }
+
+            -- SystemD
+            --
+            lspconfig.systemd_ls.setup = {
+                filetypes = { 'systemd' },
+            }
+            --         cmd = { 'systemd-language-server' },
+            --         filetypes = { 'systemd' },
+            --         root_dir = function() return nil end,
+            --         single_file_support = true,
+            --         settings = {},
+            --     docs = {
+            --         description = [[Language Server for Systemd unit files.]]
+            --     }
+            -- }
+            -- lspconfig.systemd_ls.setup {}
 
             vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 

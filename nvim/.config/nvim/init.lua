@@ -118,6 +118,10 @@ vim.api.nvim_create_autocmd('FileType', {
     end,
 })
 
+-- vim.on_key(function(key)
+--     local sound_path = vim.fn.expand("~/Music/Click.flac")
+--     vim.system({ "paplay", sound_path, "--volume", "26214" })
+-- end)
 
 -- lazy setup
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

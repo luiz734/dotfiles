@@ -8,12 +8,18 @@ return
             require('telescope').setup {
                 defaults = {
                     layout_strategy = 'flex',
-                    file_ignore_patterns = { "^addons/",
+                    file_ignore_patterns = {
+                        -- "^addons/",
                         -- godot
                         "**/*.import", "**/*.png", "**/*.ase", "**/*.ttf", "**/*.tscn", "**/*.tres",
                         "venv"
                     }
                 },
+                pickers = {
+                    colorscheme = {
+                        enable_preview = true
+                    }
+                }
                 -- pickers = {
                 --     find_files = {
                 --         hidden = true

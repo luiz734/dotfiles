@@ -13,6 +13,8 @@ lua_modules
 .import
 build
 .svelte-kit
+# Brave stuff
+CacheStorage
 
 # user dirs
 /Pictures
@@ -35,6 +37,7 @@ build
 /.var/app/com.jetbrains.WebStorm
 /.var/app/org.ferdium.Ferdium
 /.var/app/org.polymc.PolyMC
+/.var/app/com.usebottles.bottles
 
 # unwanted config files
 /.config/Code
@@ -68,7 +71,11 @@ build
 /.local/share/Steam
 /.local/share/NuGet
 /.local/share/multimc
+/.local/share/akonadi
+/.local/share/PrismLauncher
+
 /go
 /.local/share/godot/export_templates
 /git
 /.jdks
+/.thunderbird
