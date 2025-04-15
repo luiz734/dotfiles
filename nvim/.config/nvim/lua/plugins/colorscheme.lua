@@ -3,7 +3,7 @@ return
     {
         "nyoom-engineering/oxocarbon.nvim",
         config = function()
-            -- vim.opt.background = "dark" -- set this to dark or light
+            vim.opt.background = "dark" -- set this to dark or light
             -- vim.cmd.colorscheme "oxocarbon"
         end
     },
@@ -15,7 +15,7 @@ return
             require("catppuccin").setup({
                 flavour = "latte", -- latte, frappe, macchiato, mocha
             })
-            vim.cmd.colorscheme "catppuccin"
+            -- vim.cmd.colorscheme "catppuccin"
         end
     },
 
@@ -25,9 +25,9 @@ return
             require('onedark').setup {
                 style = 'darker',
             }
-            require('onedark').load()
+            -- require('onedark').load()
         end
-    }
+    },
     -- Update current theme persistently
     -- Store current theme in nvim/.config/lua/cache/theme.lua
     -- {
@@ -75,15 +75,15 @@ return
     --         vim.api.nvim_set_hl(0, '@lsp.type.comment', {})
     --     end
     -- },
-    -- {
-    --     "folke/tokyonight.nvim",
-    --     lazy = false,
-    --     priority = 1000,
-    --     opts = {},
-    --     config = function()
-    --         -- vim.cmd.colorscheme 'tokyonight-night'
-    --     end,
-    -- },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+        config = function()
+            vim.cmd.colorscheme 'tokyonight-night'
+        end,
+    },
     -- {
     --     "bluz71/vim-moonfly-colors",
     --     lazy = false,
