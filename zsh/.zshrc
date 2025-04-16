@@ -33,12 +33,9 @@ zinit light-mode for \
 #plugins
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit snippet https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh
-zinit light https://github.com/ael-code/zsh-colored-man-pages
 zinit snippet https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/lib/clipboard.zsh
 zinit snippet https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/copybuffer/copybuffer.plugin.zsh
-zinit snippet https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/asdf/asdf.plugin.zsh
 zinit load zsh-users/zsh-autosuggestions
-# zinit load agkozak/zsh-z
 zinit ice lucid wait'0'
 zinit light joshskidmore/zsh-fzf-history-search
 zinit light zsh-users/zsh-completions
@@ -56,12 +53,12 @@ export SCRIPTS_DIR="$HOME/scripts"
 # lsd color for directories
 # export LS_COLORS="di=34"
 
-export EDITOR=/usr/bin/nvim
-export FZF_DEFAULT_OPTS="--layout=reverse --inline-info --color=hl:#319BE7
+export EDITOR=/usr/bin/vim
+# export FZF_DEFAULT_OPTS="--layout=reverse --inline-info --color=hl:#319BE7
 #     --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 # --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 # --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-SUDO_EDITOR=/usr/bin/nvim
+export SUDO_EDITOR=/usr/bin/vim
 export SUDO_EDITOR
 
 PATH=$PATH:~/.local/bin
@@ -70,23 +67,14 @@ PATH="$PATH:~/.dotnet/tools"
 PATH="$PATH:/usr/bin/vendor_perl"
 PATH=$PATH:~/go/bin
 
-# PATH=$PATH:~/bin
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-alias ls="lsd"
-alias screenoff="sleep 1; xset dpms force off"
 alias cpy="wl-copy"
 # gum
-alias run="$HOME/scripts/run.sh"
-alias change-theme="$HOME/scripts/alacritty-change-theme.lua"
-# kitty ssh
-# alias ssh-k="kitty +kitten ssh" # --kitten=color_scheme=Alucarda"
-alias cat="bat"
-alias wiki="cd ~/Drive/obsidian/Wiki && nvim ."
-# alias lazy="lazygit"
-alias tmx="tmuxinator"
+# alias run="$HOME/scripts/run.sh"
+# alias wiki="cd ~/Drive/obsidian/Wiki && nvim ."
 
 # enable <C-BS> for file paths
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
@@ -100,20 +88,19 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 
-
 bindkey "^[[1;5D" backward-word
 bindkey "^[[1;5C" forward-word
 
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export MANROFFOPT="-c"
-
-# direnv
 eval "$(direnv hook zsh)"
-# zoxide
-eval "$(zoxide init zsh)"
-
+export LESS='-R --mouse --wheel-lines=3'
 
 # fzf
+
+export FZF_DEFAULT_OPTS="--layout=reverse --inline-info --color=hl:#319BE7
+#     --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+# --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+# --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
 eval "$(fzf --zsh)"
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -150,27 +137,4 @@ _fzf_comprun() {
     # tmux)         cat ~/.zsh_history | grep "tmux new-session -A -s" | awk '!seen[$0]++' | tac | fzf "$@" ;;
     *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
   esac
-}
-
-# better ls
-alias ls="eza --color=always --icons=always"
-
-# git clone https://github.com/junegunn/fzf-git.sh
-# source ~/fzf-git.sh/fzf-git.sh
-
-# allow mouse scroll
-export LESS='--mouse --wheel-lines=3'
-# export BAT_THEME="Catppuccin Mocha"
-
-# yazi
-# provides the ability to change the current working directory when exiting Yazi.
-# q quit changing CWD
-# Q just quit
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
 }
