@@ -53,13 +53,8 @@ export SCRIPTS_DIR="$HOME/scripts"
 # lsd color for directories
 # export LS_COLORS="di=34"
 
-export EDITOR=/usr/bin/vim
-# export FZF_DEFAULT_OPTS="--layout=reverse --inline-info --color=hl:#319BE7
-#     --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
-# --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-# --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-export SUDO_EDITOR=/usr/bin/vim
-export SUDO_EDITOR
+export EDITOR='nvim'
+export SUDO_EDITOR='nvim -u ~/.config/nvim/minimal.lua'
 
 PATH=$PATH:~/.local/bin
 PATH=$PATH:~/.local/share/gem/ruby/3.0.0/bin
