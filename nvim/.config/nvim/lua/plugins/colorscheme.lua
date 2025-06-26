@@ -15,10 +15,16 @@ return
             require("catppuccin").setup({
                 flavour = "latte", -- latte, frappe, macchiato, mocha
             })
-            -- vim.cmd.colorscheme "catppuccin"
         end
     },
-
+    {
+        'dasupradyumna/midnight.nvim',
+        lazy = false,
+        priority = 1000,
+        config = function ()
+            vim.cmd.colorscheme "midnight"
+        end
+    },
     {
         "navarasu/onedark.nvim",
         config = function()
@@ -81,7 +87,7 @@ return
         priority = 1000,
         opts = {},
         config = function()
-            vim.cmd.colorscheme 'tokyonight-night'
+            -- vim.cmd.colorscheme 'tokyonight-night'
         end,
     },
     -- {

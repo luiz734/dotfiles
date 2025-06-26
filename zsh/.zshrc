@@ -66,14 +66,16 @@ PATH=$PATH:~/.local/share/gem/ruby/3.0.0/bin
 PATH="$PATH:~/.dotnet/tools"
 PATH="$PATH:/usr/bin/vendor_perl"
 PATH=$PATH:~/go/bin
+PATH=$PATH:~/.cargo/bin
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
 alias cpy="wl-copy"
+alias ls="ls --color=\"auto\""
 # gum
-# alias run="$HOME/scripts/run.sh"
+alias run="$HOME/scripts/run.sh"
 # alias wiki="cd ~/Drive/obsidian/Wiki && nvim ."
 
 # enable <C-BS> for file paths
