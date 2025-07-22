@@ -60,7 +60,6 @@ return
                     }
                 }
             })
-            lspconfig.gopls.setup({})
             lspconfig.html.setup({
                 -- Fix html auto completion not working
                 capabilities = require('cmp_nvim_lsp').default_capabilities(),

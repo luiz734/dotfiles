@@ -31,6 +31,14 @@ vim.keymap.set('n', '<leader>w0', ':tabc<CR>', { noremap = true, desc = "Close t
 vim.keymap.set('n', '<leader>wH', '<c-w>H', { noremap = true, silent = true, desc = "Move window left" })
 vim.keymap.set('n', '<leader>wL', '<c-w>L', { noremap = true, silent = true, desc = "Move window right" })
 
+-- terminal mode
+vim.keymap.set('n', '<leader>t', ':vsplit term://zsh<CR>a', { noremap = true, silent = true, desc = "Open terminal" })
+vim.keymap.set('t', '<esc>',     '<C-\\><C-N>', { noremap = true, silent = true, desc = "Open terminal" })
+vim.keymap.set('t', '<C-h>',  '<C-\\><C-N><C-w>h', { noremap = true, silent = true, desc = "Move Left" })
+vim.keymap.set('t', '<C-j>',  '<C-\\><C-N><C-w>j', { noremap = true, silent = true, desc = "Move Down" })
+vim.keymap.set('t', '<C-k>',    '<C-\\><C-N><C-w>k', { noremap = true, silent = true, desc = "Move Up" })
+vim.keymap.set('t', '<C-l>', '<C-\\><C-N><C-w>l', { noremap = true, silent = true, desc = "Move Right" })
+
 
 -- vim.opt.clipboard = 'unnamedplus'
 vim.opt.showmode = false -- equivalent to set noshowmode
