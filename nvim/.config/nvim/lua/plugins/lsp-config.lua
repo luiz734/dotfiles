@@ -11,11 +11,4 @@ return {
             ensure_installed = { "lua_ls" }
         },
     },
-
-    {
-        "neovim/nvim-lspconfig",
-        config = function()
-            -- vim.lsp.config.lua_ls.setup {}
-        end
-    },
 }
