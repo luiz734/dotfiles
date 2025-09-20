@@ -3,6 +3,7 @@ return {
     config = function()
         require("oil").setup({
             delete_to_trash = true,
+            default_file_explorer = true,
             skip_confirm_for_simple_edits = true,
             view_options = {
                 show_hidden = true,
@@ -29,8 +30,8 @@ return {
         })
 
         vim.keymap.set('n', '<leader>o', function()
-            -- vim.cmd("vsplit | wincmd L")
             require("oil").open()
         end, { noremap = true, desc = "Open oil" })
     end
 }
+
