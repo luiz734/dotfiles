@@ -9,7 +9,7 @@ vim.keymap.set({ 'n', }, '<Left>', ':messages<CR>', { silent = true })
 vim.keymap.set({ 'v', 'n' }, '<leader>y', '"+y', {})
 vim.keymap.set({ 'v', 'n' }, '<leader>p', '"+p', {})
 
-vim.opt.showmode = false 
+vim.opt.showmode = false
 vim.opt.termguicolors = true
 vim.o.breakindent = true
 vim.o.completeopt = 'menuone,noselect'
@@ -28,6 +28,8 @@ vim.o.updatetime = 250
 vim.wo.number = true
 vim.wo.signcolumn = 'yes'
 vim.o.scrolloff = 10
+vim.opt.winborder = 'rounded'
 
-require 'config.autocmd'
 require 'config.lazy'
+require 'config.lsp'
+require 'config.autocmd'

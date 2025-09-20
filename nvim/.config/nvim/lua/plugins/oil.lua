@@ -34,4 +34,3 @@ return {
         end, { noremap = true, desc = "Open oil" })
     end
 }
-
