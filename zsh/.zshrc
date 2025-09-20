@@ -31,6 +31,7 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 #plugins
+# zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit snippet https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh
 zinit snippet https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/lib/clipboard.zsh

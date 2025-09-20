@@ -1,35 +1,41 @@
-    
 [window]
 dimensions = { columns = 100, lines = 24 }
 # padding = { x = 20, y = 20 }
 
 [font]
-size = 12.5
+size = 13
 # offset = { x = 0, y = 1}
-normal = { family = "Hack Nerd Font", style="regular"}
-# bold = { family = "JetBrainsMonoNL Nerd Font Mono", style="bold"}
-# italic = { family = "JetBrainsMonoNL Nerd Font Mono", style="italic"}
+normal = { family = "Hack Nerd Font Mono", style="regular"}
+bold = { family = "Hack Nerd Font Mono", style="bold"}
+italic = { family = "Hack Nerd Font Mono", style="italic"}
+
+# [colors.primary]
+# Using breeze theme
+# foreground = "#fcfcfc"
+# background="#222526"
+
+[selection]
+save_to_clipboard = true
+
+[terminal]
+shell = { program = "/bin/zsh" }
+
+[mouse]
+hide_when_typing = true
 
 [keyboard]
 bindings = [
     { key = "F11", action = "ToggleFullscreen" },
-    { key = "F10", action = "ToggleViMode" },
+    { key = "F2", action = "ToggleViMode" },
+    { key = "Escape", mode = "Vi", action = "ToggleViMode" },
+    { key = "F3", action = "Open" },
 ]
 
 [env]
 TERM = "xterm-256color"
 
-[selection]
-save_to_clipboard = true
-
 [general]
-# [shell]
-# program = "tmux"
-# args = ["new-session", "-A", "-s", "main"]
+import = [
+  "~/.config/alacritty/themes/breeze.toml"
+]
 
-#la import = [
-#   "~/.config/alacritty/themes/current_theme.toml"
-# ]
-
-[colors.primary]
-background="#222526"
