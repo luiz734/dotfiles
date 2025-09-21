@@ -1,37 +1,34 @@
+-- Remove Global Default Key mapping
+vim.keymap.del("n", "grn")
+vim.keymap.del("n", "gra")
+vim.keymap.del("n", "grr")
+vim.keymap.del("n", "gri")
+vim.keymap.del("n", "gO")
+
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(ev)
+        -- local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        local keymap = vim.keymap
+        local lsp = vim.lsp
+        local bufopts = { noremap = true, silent = true }
+
+        -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { buffer = ev.buf, desc = "Signature help" })
+        keymap.set('n', '<leader>D', lsp.buf.type_definition, bufopts)
+        keymap.set('n', '<leader>ca', lsp.buf.code_action, bufopts)
+        keymap.set('n', '<leader>rn', lsp.buf.rename, bufopts)
+        keymap.set('n', 'K', lsp.buf.hover, bufopts)
+        keymap.set('n', 'gD', lsp.buf.declaration, bufopts)
+        keymap.set('n', 'gd', lsp.buf.definition, bufopts)
+        keymap.set('n', 'gi', lsp.buf.implementation, bufopts)
+        keymap.set('n', 'gr', lsp.buf.references, bufopts)
+        keymap.set('n', '<C-M-l>', function()
+            vim.lsp.buf.format { async = true }
+        end, bufopts)
+    end,
+})
+
+
 vim.lsp.enable {
     "lua_ls",
     "gdscript"
 }
-
--- Using tiny-diagnostics instead
--- vim.diagnostic.config({
---     virtual_lines = {
---         current_line = true,
---     },
--- })
-
-vim.api.nvim_create_autocmd('LspAttach', {
-    callback = function(ev)
-        local client = vim.lsp.get_client_by_id(ev.data.client_id)
-
-        -- Not necessary anymore
-        -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = ev.buf, desc = "Hover doc" })
-
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = ev.buf, desc = "Go to declaration" })
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = ev.buf, desc = "Go to definition" })
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation,
-            { buffer = ev.buf, desc = "Go to implementation" })
-
-        -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { buffer = ev.buf, desc = "Signature help" })
-        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition,
-            { buffer = ev.buf, desc = "Type defininition" })
-        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = ev.buf, desc = "Rename" })
-        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action,
-            { buffer = ev.buf, desc = "Code action" })
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = ev.buf, desc = "Go to references" })
-        vim.keymap.set('n', '<C-M-l>', function()
-            vim.lsp.buf.format { async = true }
-        end, { buffer = ev.buf, desc = "Format document" })
-
-    end,
-})
