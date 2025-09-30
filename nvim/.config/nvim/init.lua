@@ -9,6 +9,9 @@ vim.keymap.set({ 'n', }, '<Left>', ':messages<CR>', { silent = true })
 vim.keymap.set({ 'v', 'n' }, '<leader>y', '"+y', {})
 vim.keymap.set({ 'v', 'n' }, '<leader>p', '"+p', {})
 
+-- window
+vim.keymap.set('n', '<leader>wo', ':only<CR>', { noremap = true, desc = "Window close others" })
+
 vim.opt.showmode = false
 vim.opt.termguicolors = true
 vim.o.breakindent = true
