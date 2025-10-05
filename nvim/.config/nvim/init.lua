@@ -1,7 +1,12 @@
 vim.g.mapleader = " "
 vim.keymap.set({ 'n', 'v' }, ';', ':', {})
 vim.keymap.set({ 'n', 'v' }, ':', ';', {})
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
+vim.keymap.set({ 'n', }, '<Up>', ':<Up>', {})
+vim.keymap.set({ 'n', }, '<Left>', ':messages<CR>', { silent = true })
+
+-- arrow remaps
 vim.keymap.set({ 'n', }, '<Up>', ':<Up>', {})
 vim.keymap.set({ 'n', }, '<Left>', ':messages<CR>', { silent = true })
 
