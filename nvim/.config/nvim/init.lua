@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+
 vim.keymap.set({ 'n', 'v' }, ';', ':', {})
 vim.keymap.set({ 'n', 'v' }, ':', ';', {})
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -16,6 +17,11 @@ vim.keymap.set({ 'v', 'n' }, '<leader>p', '"+p', {})
 
 -- window
 vim.keymap.set('n', '<leader>wo', ':only<CR>', { noremap = true, desc = "Window close others" })
+vim.keymap.set('n', '<leader>w=', ':wincmd =<CR>', { noremap = true, desc = "Window match width" })
+vim.keymap.set('n', '<leader>w-', ':tab split<CR>', { noremap = true, desc = "Open window in new tab" })
+vim.keymap.set('n', '<leader>w0', ':tabc<CR>', { noremap = true, desc = "Close tab" })
+vim.keymap.set('n', '<leader>wk', ':tabp<CR>', { noremap = true, desc = "Prev tab" })
+vim.keymap.set('n', '<leader>wj', ':tabn<CR>', { noremap = true, desc = "Next tab" })
 
 vim.opt.showmode = false
 vim.opt.termguicolors = true
