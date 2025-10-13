@@ -7,6 +7,19 @@ return {
             skip_confirm_for_simple_edits = true,
             view_options = {
                 show_hidden = true,
+                is_always_hidden = function(name, bufnr)
+                    local patterns_to_ignore = {
+                        "%.gd%.uid$",
+                    }
+
+                    for _, pattern in ipairs(patterns_to_ignore) do
+                        if name:match(pattern) then
+                            return true
+                        end
+                    end
+
+                    return false
+                end,
             },
             keymaps = {
                 ["g?"] = "actions.show_help",
